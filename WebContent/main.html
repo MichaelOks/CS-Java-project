@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bootstrap 101 Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="css/Main.css">
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="css/master-blessed0.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+<SCRIPT SRC="js/google.js"></SCRIPT>
+
+<script>
+	//Log-in javascript
+	$(document).ready(function() {
+		$("#loginLink").click(function(event) {
+			event.preventDefault();
+			$(".overlay").fadeToggle("slow");
+		});
+
+		$(".overlayLink").click(function(event) {
+			event.preventDefault();
+			var action = $(this).attr('data-action');
+
+			$.get("ajax/" + action, function(data) {
+				$(".login-content").html(data);
+			});
+
+			$(".overlay").fadeToggle("fast");
+		});
+
+		$(".close").click(function() {
+			$(".overlay").fadeToggle("fast");
+		});
+
+		$(document).keyup(function(e) {
+			if (e.keyCode == 27 && $(".overlay").css("display") != "none") {
+				event.preventDefault();
+				$(".overlay").fadeToggle("fast");
+			}
+		});
+	});
+</script>
+</head>
+
+<!-- =========BODY  ========= -->
+
+<body onload="initialize()">
+	<!-- 	<div class="container"> -->
+
+	<!-- ========= NAV ========= -->
+	<header id="master-header" class="master-header overlay-header">
+		<div class="container">
+			<div class="row pagination-centered">
+				<div class="col-sm-8">
+					<nav id="site-nav" class="site-nav">
+						<ul>
+							<li class="nav-item-1"><a class="vizio-logo"> <span
+									id="header-vizio-logo" class="icon-vizio"></span>
+							</a></li>
+							<li id="nav-item-tv" class="nav-item-2"><a class="nav-link"
+								href="#"
+								onclick="ga('send', 'event', 'header link', 'clicked', 'TV');">Home</a>
+							</li>
+
+							<li id="nav-item-tv" class="nav-item-2"><a class="nav-link"
+								href="#branch">Find Branch</a></li>
+
+							<li id="nav-item-tv" class="nav-item-2"><a class="nav-link"
+								href="#car"">Find Car</a></li>
+
+							<li id="nav-item-audio" class="nav-item-3"><a
+								class="nav-link" href="/audio-overview"
+								onclick="ga('send', 'event', 'header link', 'clicked', 'Audio');">About</a>
+							</li>
+
+						</ul>
+					</nav>
+				</div>
+				<div class="col-sm-4 pull-right">
+					<ul class="header-controls">
+						<!-- 
+						<li class="live-chat-li first visible-lg visible-md"><a
+							class="live-chat" href="/CarRent/Manage"
+							onclick=window.location.href = "/CarRent/Admin.jsp;"> Admin </a></li> -->
+
+						<ul>
+							<li><a href="login.php" class="overlayLink"
+								data-action="login-form.html">Log-in</a></li>
+
+						</ul>
+						<div class="overlay" style="display: none;">
+							<div class="login-wrapper">
+								<div class="login-content">
+									<a class="close">x</a>
+									<h3>Sign in</h3>
+									<form method="get" action="/CarRent/Manage" name="Admin">
+										<label for="username"> Username: <input type="text"
+											name="username" id="username" placeholder="Username"
+											required="required" />
+										</label> <label for="password"> Password: <input
+											type="password" name="password" id="password"
+											placeholder="Password" required="required" />
+										</label>
+										<button type="submit">Sign in</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						</li>
+
+					</ul>
+				</div>
+				<div id="blog-title" class="container" style="display: none;">
+					<div class="row">
+						<div class="col-md-6 col-xs-4 title-container">
+							<p id="blog-title-text"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<!-- =========  BACKGROUND ROW ========= -->
+	<container> <main>
+	<div class="cd-fixed-bg cd-bg-1">
+		<h1 class="text-center"
+			style="font-size: 80px; color: black; position: relative; top: 150px;">Car
+			Reantal Company</h1>
+	</div>
+	</main> </container>
+
+	<!-- =========   GOOGLE MA ========= -->
+	<a name="branch"></a>
+	<div class="hero-unit">
+		<h3>Find The Nearest Branch Location:</h3>
+		<div class="row">
+			<div class="col-md-6">
+				<div id="map-canvas" style="width: 650px; height: 400px;"></div>
+			</div>
+			<div class="span3">
+
+				<table class="table table-condensed">
+					<tr>
+						<td><input id="address" type="textbox" value="Sydney, NSW"></td>
+						<td><button type="button" class="btn btn-info btn-xs "
+								onclick="codeAddress()">Search Address</button></td>
+					</tr>
+					<tr>
+						<td><button type="button" class="btn btn-info btn-block"
+								onclick="sendLocations()">Search Branch</button></td>
+
+					</tr>
+				</table>
+
+			</div>
+		</div>
+		<!-- ========= SEPARATING ROW ========= -->
+		<!-- 		<container>
+	</div>
+
+	</container>
+		<container> <main>
+	<div class="cd-fixed-bg2 cd-bg-2">
+	
+	</div>
+	</main> </container> -->
+	</div>
+	<!-- ========= SEARCH CAR ========= -->
+
+	<a name="car"></a>
+	<h3>Find Your Next Car:</h3>
+	<form method="get" action="/CarRent/Manage">
+		<table class="table table-condensed">
+			<tr>
+				<td>Car Model</td>
+				<td>Car Year</td>
+				<td>*Car price</td>
+				<td>Car branch</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="model" placeholder="Model Type" /></td>
+				<td><input type="text" name="year"
+					placeholder="Minimum car year" /></td>
+				<td><input type="text" name="price" placeholder="Maximum price"
+					required /></td>
+				<td><input type="text" name="branch" placeholder="Branch ID" /></td>
+				<td><input type="submit" class="btn btn-success" /></td>
+			</tr>
+		</table>
+		<br>
+	</form>
+
+
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

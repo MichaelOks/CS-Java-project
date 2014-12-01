@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="il.ac.hit.project.model.Car" table="CAR">
+		<id name="carId" type="int" column="CARID">
+		</id>
+		<property name="model">
+			<column name="MODEL" />
+		</property>
+		<property name="year">
+			<column name="YEAR" />
+		</property>
+		<property name="price">
+			<column name="PRICE" />
+		</property>
+		<property name="branchId">
+			<column name="BRANCHID" />
+		</property>
+		
+			<property name="imageUrl">
+			<column name="IMAGEURL" />
+		</property>
+	</class>
+
+
+	<class name="il.ac.hit.project.model.Branch" table="BRANCHES">
+		<id name="id" type="int" column="ID">
+		</id>
+		<property name="name">
+			<column name="NAME" />
+		</property>
+
+		<property name="x">
+			<column name="X" />
+		</property>
+
+		<property name="y">
+			<column name="Y" />
+		</property>
+	</class>
+
+	<class name="il.ac.hit.project.model.Admin" table="Admin">
+		<id name="user">
+			<column name="USER" />
+		</id>
+		<property name="password">
+			<column name="PASSWORD" />
+		</property>
+	</class>
+
+
+</hibernate-mapping>
