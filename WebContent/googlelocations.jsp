@@ -31,23 +31,44 @@
 	
 </tr>
 <%
+String p=null;
 Collection products = (Collection)request.getAttribute("google");
 Iterator iterator = products.iterator();
 while(iterator.hasNext())
 {
-	Branch branch = (Branch)iterator.next();
+	Object[] branch = (Object[])iterator.next();
+	p = String.valueOf(branch[0]);
 %>
 	<tr>
-	<td class="active"><%= branch.getId() %></td>
-	<td class="active"><%= branch.getName() %></td>
-	</tr>
-<% 
-}
-
+	<td class="active"><%= String.valueOf(branch[0]) %></td>
+	<td class="active"><%= String.valueOf(branch[1]) %></td>
+</tr>
+<% } %>
+</table>
+<!--  -->
+<table class="table table-hover">
+<tr>
+	<th>Car Id</th><th>Car Name</th><th>Car Price</th><th>Car Year</th>
+	
+</tr>
+<%
+Collection products2 = (Collection) MyHQLCarDAO.getInstance().getCarsWithBranshId(String.valueOf(p));
+Iterator iterator2 = products2.iterator();
+while(iterator2.hasNext())
+{
+	Car car = (Car)iterator2.next();
 %>
-
+	<tr>
+	<td class="active"><%= car.getCarId() %></td>
+	<td class="active"><%= car.getModel() %></td>
+	<td class="active"><%= car.getPrice() %></td>
+	<td class="active"><%= car.getYear()%></td>
+	<td class="active"><img src=<%= car.getImageUrl() %> class="img-thumbnail" style="max-width:150px";></td> <!-- puts the URL string in image tag -->
+</tr>
+<% } %>
 </table>
 
+</form>
 
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

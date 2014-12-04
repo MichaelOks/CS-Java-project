@@ -343,6 +343,33 @@ public class MyHQLCarDAO implements ICarDAO {
 		}
 	}
 
+	
+	public Collection<Car> getCarsWithBranshId(String branchId) throws CarRentException {
+		Session session = null;
+		Transaction tx = null;
+		
+		try {
+			session = factory.openSession();
+			tx = session.beginTransaction();
+			String query = "from Car where branchId= "+branchId;
+			@SuppressWarnings("unchecked")
+			List<Car> cars = session.createQuery(query).list();
+			return cars;
+
+		} catch (HibernateException exceptionEvent) {
+			if (tx != null)
+				tx.rollback();
+			exceptionEvent.printStackTrace();
+			throw new CarRentException("Problem with getting the car");
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	
+	
 	public Collection<Integer> getAllCarIds() {
 		Session session = null;
 		Transaction tx = null;
