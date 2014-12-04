@@ -31,5 +31,5 @@ public interface IBranchDAO {
 	 * */
 	public abstract void addBranch(int id, String name, double x, double y) throws CarRentException;
 	
-	public abstract void calculateDistance(double x, double y) throws CarRentException;
+	public abstract Collection<Branch> calculateDistance(double x, double y) throws CarRentException;
 }

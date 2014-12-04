@@ -1,13 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=windows-1255"
-    import="java.util.*,il.ac.hit.project.model.*"
+<%@ page language="java" contentType="text/html; charset=windows-1255" import="java.util.*,il.ac.hit.project.model.*"
     pageEncoding="windows-1255"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1255">
-
-<title>Insert title here</title>
-
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link rel="stylesheet" href="css/Main.css">
@@ -21,28 +16,30 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?language=he"></script>
+<SCRIPT SRC="js/google.js"></SCRIPT>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1255">
+<title>Nearest Branch Location</title>
 </head>
 <body>
+
+
 <form method="get" action="/CarRent/Manage">
 <table class="table table-hover">
 <tr>
-	<th>id</th><th>model</th><th>year</th><th>price</th><th>branch id</th><th>car image</th>
+	<th>Branch Id</th><th>Branch Name</th>
 	
 </tr>
 <%
-Collection products = (Collection )request.getAttribute("carModel");
+Collection products = (Collection)request.getAttribute("google");
 Iterator iterator = products.iterator();
 while(iterator.hasNext())
 {
-	Car car = (Car)iterator.next();
+	Branch branch = (Branch)iterator.next();
 %>
 	<tr>
-	<td class="active"><%= car.getCarId() %> <input type = "checkbox" name = "selectedCars" value = <%=car.getCarId()%>  ></td>
-	<td class="active"><%= car.getModel() %></td>
-	<td class="active"><%= car.getYear() %></td>
-	<td class="active"><%= car.getPrice() %></td>
-	<td class="active"><%= car.getBranchId() %></td>
-	<td class="active"><img src=<%= car.getImageUrl() %> class="img-thumbnail" style="max-width:150px";></td> <!-- puts the URL string in image tag -->
+	<td class="active"><%= branch.getId() %></td>
+	<td class="active"><%= branch.getName() %></td>
 	</tr>
 <% 
 }
@@ -52,8 +49,6 @@ while(iterator.hasNext())
 </table>
 
 
-<button type="submit" class="btn btn-info" >Move To Chart</button>
-</form>
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>

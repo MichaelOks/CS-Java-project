@@ -25,10 +25,13 @@ public class HibernateDemo {
 //			 session.getTransaction().commit();
 
 			// creating a new session for getting all products
-			ICarDAO dao = MyHQLCarDAO.getInstance();
-//			IBranchDAO dao2 = MyHQLBranchDAO.getInstance();
-//			dao2.addBranch(3, "df", 37.87, 65.3);
-			dao.addCar(5, "porsche", "2012", 50000, 12,"http://upload.wikimedia.org/wikipedia/commons/7/75/2010_Honda_Insight--DC.jpg");
+//			ICarDAO dao = MyHQLCarDAO.getInstance();
+			IBranchDAO dao2 = MyHQLBranchDAO.getInstance();
+//			dao2.addBranch(5, "df", 37.87, 65.3);
+//			dao2.addBranch(1, "ramla", 36.17, -54.3);
+			java.util.Collection<Branch> b = dao2.calculateDistance(32.5,45.6);
+			System.out.println(b);
+//			dao.addCar(5, "porsche", "2012", 50000, 12,"http://upload.wikimedia.org/wikipedia/commons/7/75/2010_Honda_Insight--DC.jpg");
 //			dao.addCar(8, "lexus", "2052", 50000, 12);
 //			dao2.deleteBranch(12);
 //

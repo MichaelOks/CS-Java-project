@@ -7,16 +7,25 @@ public class Car {
 	private int price;
 	private int branchId;
 	private String imageUrl;
+	private String rentedSince;
 	
-	
+	public String getRentedSince() {
+		return rentedSince;
+	}
+
+	public void setRentedSince(String rentedSince) {
+		this.rentedSince = rentedSince;
+	}
+
 	//*Constructor */
-	public Car(int carId, String model, String year, int price, int branchId,String imageUrl) {
+	public Car(int carId, String model, String year, int price, int branchId,String imageUrl,String rentedSince) {
 		setCarId(carId);
 		setModel(model);
 		setYear(year);
 		setPrice(price);
 		setBranchId(branchId);
 		setImageUrl(imageUrl);
+		setRentedSince(rentedSince);
 	}
 
 	public Car() {

@@ -23,6 +23,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <form method="get" action="/CarRent/Manage">
 <table class="table table-hover">
 <tr>
@@ -30,14 +31,14 @@
 	
 </tr>
 <%
-Collection products = (Collection )request.getAttribute("carModel");
+Collection products = (Collection )request.getAttribute("selectedCars");
 Iterator iterator = products.iterator();
 while(iterator.hasNext())
 {
 	Car car = (Car)iterator.next();
 %>
 	<tr>
-	<td class="active"><%= car.getCarId() %> <input type = "checkbox" name = "selectedCars" value = <%=car.getCarId()%>  ></td>
+	<td class="active"><%= car.getCarId() %></td>
 	<td class="active"><%= car.getModel() %></td>
 	<td class="active"><%= car.getYear() %></td>
 	<td class="active"><%= car.getPrice() %></td>
@@ -50,10 +51,6 @@ while(iterator.hasNext())
 %>
 
 </table>
-
-
-<button type="submit" class="btn btn-info" >Move To Chart</button>
-</form>
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>

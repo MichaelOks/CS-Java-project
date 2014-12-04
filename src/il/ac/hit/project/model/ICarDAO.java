@@ -4,7 +4,7 @@ import java.util.Collection;
 
 public interface ICarDAO {
 	/** Add new car to the DB*/
-	public abstract void addCar(int carId, String model, String year, int price, int branchId,String carImageUrl) throws CarRentException;
+	public abstract void addCar(int carId, String model, String year, int price, int branchId,String carImageUrl,String rentedSince) throws CarRentException;
 	/**@return all the cars in the DB */
 	public abstract Collection<Car> getCars() throws CarRentException;
 	/**

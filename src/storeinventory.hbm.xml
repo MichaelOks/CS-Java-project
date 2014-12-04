@@ -23,10 +23,13 @@
 			<property name="imageUrl">
 			<column name="IMAGEURL" />
 		</property>
+			<property name="rentedSince">
+			<column name="RENTEDSINCE" />
+		</property>
 	</class>
 
 
-	<class name="il.ac.hit.project.model.Branch" table="BRANCHES">
+	<class name="il.ac.hit.project.model.Branch" table="BRANCH">
 		<id name="id" type="int" column="ID">
 		</id>
 		<property name="name">

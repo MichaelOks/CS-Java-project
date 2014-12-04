@@ -7,6 +7,7 @@ import il.ac.hit.project.model.IAdminDAO;
 import il.ac.hit.project.model.IBranchDAO;
 import il.ac.hit.project.model.ICarDAO;
 import il.ac.hit.project.model.MyHQLAdminDAO;
+import il.ac.hit.project.model.MyHQLBranchDAO;
 import il.ac.hit.project.model.MyHQLCarDAO;
 
 import java.io.IOException;
@@ -56,6 +57,7 @@ public class Manage extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 
 		Enumeration<String> val = request.getParameterNames();
+		System.out.println("sdsdssd");
 		while (val.hasMoreElements()) {
 			String name = (String) val.nextElement();
 			/* Return table with cars of all the answers of the query */
@@ -97,8 +99,9 @@ public class Manage extends HttpServlet {
 					String paramCarPrice = request.getParameter("updatecarprice");
 					String paramCarBranch = request.getParameter("updatecarbranch");
 					String paramImageUrl = request.getParameter("updatecarimageurl");
+					String paramRentedSince = request.getParameter("updatecarrentedsince");
 					Car car = new Car(Integer.parseInt(paramCarId), paramCarModel, paramCarYear, Integer.parseInt(paramCarPrice),
-							Integer.parseInt(paramCarBranch), paramImageUrl);
+							Integer.parseInt(paramCarBranch), paramImageUrl,paramRentedSince);
 					request.setAttribute("carModel", MyHQLCarDAO.getInstance().doesCarNeedsToBeUpdateOrAdded(car));
 					dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp");
 					dispatcher.forward(request, response);
@@ -127,20 +130,40 @@ public class Manage extends HttpServlet {
 				}
 			}
 			/* Search for the most close branch to the GE location */
-			if (name.equals("lat")) {
+			else if (name.equals("lat")) {
 				try {
-					String paramLat = request.getParameter("lat"); // google
-					String paramLng = request.getParameter("lng"); // google
+					String paramLat = request.getParameter("lat"); // google X
+					String paramLng = request.getParameter("lng"); // google Y
 
-					// TODO:
-					// request.setAttribute("google", MyHQLCarDAO.getInstance().getCar(paramModel, paramYear,paramPrice, paramBranch));
+					request.setAttribute("google", MyHQLBranchDAO.getInstance().calculateDistance(Double.parseDouble(paramLat), Double.parseDouble(paramLng)));
 					dispatcher = getServletContext().getRequestDispatcher("/googlelocations.jsp");
 					dispatcher.forward(request, response);
 				} catch (IOException e) {
 					dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
 					dispatcher.forward(request, response);
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (CarRentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 
+			}
+			else if(name.equals("selectedCars")){
+				try {
+
+					String[] results = request.getParameterValues("selectedCars");
+					for (int i = 0; i < results.length; i++) {
+					    System.out.println(results[i]); 
+					}
+					request.setAttribute("selectedCars", MyHQLCarDAO.getInstance().getCarWithIds(results));
+					dispatcher = getServletContext().getRequestDispatcher("/selectedCars.jsp");
+					dispatcher.forward(request, response);
+				} catch (IOException | CarRentException e) {
+					dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+					dispatcher.forward(request, response);
+				}
 			}
 		}
 	}
@@ -149,7 +172,35 @@ public class Manage extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+//		doGet(request, response);
+		
+		response.setContentType("text/html");
+		String path = request.getPathInfo();
+		RequestDispatcher dispatcher = null;
+
+		Enumeration<String> val = request.getParameterNames();
+		System.out.println("sdsdssd");
+		while (val.hasMoreElements()) {
+			String name = (String) val.nextElement();
+			/* Return table with cars of all the answers of the query */
+			
+				/* Check if the login user/pass is valid  */
+			if (name.equals("username")) {
+				try {
+					String paramUserName = request.getParameter("username");
+					String paramPassword = request.getParameter("password");
+					request.setAttribute("carModel", admin.checkUserAndPassword(paramUserName, paramPassword));
+					dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp");
+					dispatcher.forward(request, response);
+				} catch (IOException e) {
+					dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+					dispatcher.forward(request, response);
+				} catch (NoSuchAlgorithmException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				/* update car with new values */
+			}
 	}
 
-}
+}}

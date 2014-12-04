@@ -82,7 +82,7 @@ public class MyHQLBranchDAO implements IBranchDAO {
 			session = factory.openSession();
 			session.beginTransaction();
 			@SuppressWarnings("unchecked")
-			List<Branch> branch = session.createQuery("from branches").list();
+			List<Branch> branch = session.createQuery("from Branch").list();
 			return branch;
 		} catch (HibernateException exceptionEvent) {
 			if (tx != null)
@@ -109,7 +109,7 @@ public class MyHQLBranchDAO implements IBranchDAO {
 		try {
 			session = factory.openSession();
 			tx = session.beginTransaction();
-			String query = "from branches where id = " + branchId;
+			String query = "from Branch where id = " + branchId;
 			@SuppressWarnings("unchecked")
 			List<Branch> branchs = session.createQuery(query).list();
 			if (branchs.size() == 1) {
@@ -164,9 +164,39 @@ public class MyHQLBranchDAO implements IBranchDAO {
 	}
 
 	@Override
-	public void calculateDistance(double x, double y) throws CarRentException {
+	public Collection<Branch> calculateDistance(double x, double y) throws CarRentException {
+		Session session = null;
+		Transaction tx = null;
+		try {
+			session = factory.openSession();
+			tx = session.beginTransaction();
+			String query = "select b.id,b.name,b.X,b.Y from Branch as b, (SELECT MIN( SQRT( power("+x+"-X,2)+power("+y+"-Y,2)  ) ) ,id from Branch) as new where b.id = new.id";
+			@SuppressWarnings("unchecked")
+			List<Branch> branchs = session.createSQLQuery(query).list(); //.getResultList();
+			if (branchs.size() == 1) {
+				return branchs;
+			}
+			throw new CarRentException("can't find minimum dustance");
+		}
+
+		catch (HibernateException exceptionEvent) {
+			if (tx != null)
+				tx.rollback();
+			exceptionEvent.printStackTrace();
+			throw new CarRentException(("Failed find minimum dustance of branch from you"));
+		}
+
+		finally {
+			if (session != null) {
+				session.close();
+			}
 		
+		}
+
 	}
+	
+
+	
 
 	@SuppressWarnings("finally")
 	@Override

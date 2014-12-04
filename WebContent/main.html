@@ -16,7 +16,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?language=he"></script>
 
 <SCRIPT SRC="js/google.js"></SCRIPT>
 
@@ -104,7 +104,7 @@
 								<div class="login-content">
 									<a class="close">x</a>
 									<h3>Sign in</h3>
-									<form method="get" action="/CarRent/Manage" name="Admin">
+									<form method="post" action="/CarRent/Manage" name="Admin">
 										<label for="username"> Username: <input type="text"
 											name="username" id="username" placeholder="Username"
 											required="required" />
@@ -154,7 +154,7 @@
 
 				<table class="table table-condensed">
 					<tr>
-						<td><input id="address" type="textbox" value="Sydney, NSW"></td>
+						<td><input id="address" type="textbox" value="New-York"></td>
 						<td><button type="button" class="btn btn-info btn-xs "
 								onclick="codeAddress()">Search Address</button></td>
 					</tr>
@@ -192,12 +192,10 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="model" placeholder="Model Type" /></td>
-				<td><input type="text" name="year"
-					placeholder="Minimum car year" /></td>
-				<td><input type="text" name="price" placeholder="Maximum price"
-					required /></td>
-				<td><input type="text" name="branch" placeholder="Branch ID" /></td>
+				<td><input type="text" name="model" placeholder="Model Type"  pattern="^[a-z\d\.]{1,}$"/></td>
+				<td><input type="text" name="year" placeholder="Minimum car year" pattern="[0-9]+" /></td>
+				<td><input type="text" name="price" placeholder="Maximum price" pattern="[0-9]+"/></td>
+				<td><input type="text" name="branch" placeholder="Branch ID" pattern="[0-9]+"/></td>
 				<td><input type="submit" class="btn btn-success" /></td>
 			</tr>
 		</table>
