@@ -172,7 +172,7 @@ public class MyHQLBranchDAO implements IBranchDAO {
 			tx = session.beginTransaction();
 			String query = "select b.id,b.name,b.X,b.Y from Branch as b, (SELECT MIN( SQRT( power("+x+"-X,2)+power("+y+"-Y,2)  ) ) ,id from Branch) as new where b.id = new.id";
 			@SuppressWarnings("unchecked")
-			List<Branch> branchs = session.createSQLQuery(query).list(); //.getResultList();
+			List<Branch> branchs = session.createSQLQuery(query).list(); //
 			if (branchs.size() == 1) {
 				return branchs;
 			}
