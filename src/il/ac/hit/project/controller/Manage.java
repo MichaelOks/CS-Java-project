@@ -1,6 +1,7 @@
 package il.ac.hit.project.controller;
 
 import il.ac.hit.project.model.Admin;
+import il.ac.hit.project.model.Branch;
 import il.ac.hit.project.model.Car;
 import il.ac.hit.project.model.CarRentException;
 import il.ac.hit.project.model.IAdminDAO;
@@ -165,6 +166,29 @@ public class Manage extends HttpServlet {
 					dispatcher.forward(request, response);
 				}
 			}
+			else if (name.equals("updatebranchid")) {
+				try {
+					String paramBranchId = request.getParameter("updatebranchid");
+					String paramPositionX = request.getParameter("updatebranchpositionx");
+					String paramPositionY = request.getParameter("updatebranchpositiony");
+					String branchName = request.getParameter("updatebranchname");
+					
+ 
+					Branch branch = new Branch(Integer.parseInt(paramBranchId),branchName,Integer.parseInt(paramPositionX),Integer.parseInt(paramPositionY));
+					request.setAttribute("branchid", MyHQLBranchDAO.getInstance().doesBranchNeedsToBeUpdateOrAdded(branch));
+					
+					dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp");
+					dispatcher.forward(request, response);
+				} catch (IOException e) {
+					dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+					dispatcher.forward(request, response);
+
+				} catch (CarRentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				/* delete car with the given id */
+			} 
 		}
 	}
 

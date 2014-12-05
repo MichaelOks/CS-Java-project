@@ -32,4 +32,11 @@ public interface IBranchDAO {
 	public abstract void addBranch(int id, String name, double x, double y) throws CarRentException;
 	
 	public abstract Collection<Branch> calculateDistance(double x, double y) throws CarRentException;
+	
+	public abstract boolean doesBranchNeedsToBeUpdateOrAdded(Branch branch) throws CarRentException;
+	/**
+	 * Decides if you need to Add or Update the branch into the DB
+	 * @param branch: branch object to add or update
+	 * @return: true if the branch exist in the DB
+	 * */
 }

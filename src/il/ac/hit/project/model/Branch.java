@@ -21,11 +21,13 @@ public class Branch {
 	public void setY(double y) {
 		this.y = y;
 	}
-
+	//*Constructor */
 	public Branch(int id, String name,double x,double y) {
-		super();
-		this.id = id;
-		this.name = name;
+		//super();
+		setId(id);
+		setName(name);
+		setX(x);
+		setY(y);
 	}
 
 	public Branch() {

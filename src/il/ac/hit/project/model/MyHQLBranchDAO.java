@@ -229,4 +229,43 @@ public class MyHQLBranchDAO implements IBranchDAO {
 
 	}
 
+	@SuppressWarnings("finally")
+	@Override
+	/**
+	 * Decides if you need to Add or Update the branch into the DB
+	 * @param branch: branch object to add or update
+	 * @return: true if the branch exist in the DB
+	 * */
+	public boolean doesBranchNeedsToBeUpdateOrAdded(Branch branch) throws CarRentException {
+		Session session = null;
+		Transaction transaction = null;
+		try {
+			session = factory.openSession();
+			transaction = session.beginTransaction();
+			String query = "from Branch where id=" + branch.getId();
+
+			@SuppressWarnings("unchecked")
+			Collection<Branch> branches = session.createQuery(query).list();
+			if (branches.size() > 0) {
+				updateBranch(branch);
+			} else {
+				addBranch(branch.getId(), branch.getName(), branch.getX(), branch.getY());
+			}
+		}
+
+		catch (HibernateException exceptionEvent) {
+			if (transaction != null)
+				transaction.rollback();
+			exceptionEvent.printStackTrace();
+			throw new CarRentException(("Failed update branch"));
+		}
+
+		finally {
+			if (session != null) {
+				session.close();
+			}
+			return true;
+		}
+	}
+
 }
