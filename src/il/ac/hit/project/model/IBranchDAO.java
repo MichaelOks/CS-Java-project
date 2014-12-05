@@ -20,7 +20,7 @@ public interface IBranchDAO {
 	 * Delete branch that is in the DB
 	 * @param branchId- delete the branch with this ID
 	 * */
-	public abstract void deleteBranch(int branchId) throws CarRentException;
+	public abstract boolean deleteBranch(int branchId) throws CarRentException;
 	/** Method to update a branch record in the database 
 	 * @param car- get a branch type
 	 * @return true if no errors

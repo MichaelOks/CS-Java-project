@@ -135,7 +135,7 @@ public class MyHQLBranchDAO implements IBranchDAO {
 	 * @param branchId- delete the branch with this ID
 	 * */
 	@Override
-	public void deleteBranch(int branchId) throws CarRentException {
+	public boolean deleteBranch(int branchId) throws CarRentException {
 		System.out.println("Trying to delete branch with id: " + branchId);
 		Session session = null;
 		Transaction tx = null;
@@ -148,19 +148,20 @@ public class MyHQLBranchDAO implements IBranchDAO {
 			Branch branch = (Branch) session.get(Branch.class, branchId);
 			session.delete(branch);
 			tx.commit();
+			
 		} catch (HibernateException exceptionEvent) {
 			if (tx != null)
 				tx.rollback();
 			exceptionEvent.printStackTrace();
 			throw new CarRentException("Problem with deleting branch");
-
+			
 		} finally {
 			if (session != null) {
 				session.close();
-
+				return true;
 			}
 		}
-
+		return false;
 	}
 
 	@Override

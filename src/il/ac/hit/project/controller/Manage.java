@@ -187,8 +187,26 @@ public class Manage extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				/* delete car with the given id */
+				 
 			} 
+			
+			else if (name.equals("deletebranchid")) {
+				try {
+					String paramBranchId = request.getParameter("deletebranchid");
+					request.setAttribute("branchid", MyHQLBranchDAO.getInstance().deleteBranch(Integer.parseInt(paramBranchId)));
+					request.setAttribute("google", MyHQLCarDAO.getInstance().deleteCarFromBranchId(Integer.parseInt(paramBranchId)));
+					dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp");
+					dispatcher.forward(request, response);
+				} catch (IOException e) {
+					dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+					dispatcher.forward(request, response);
+
+				} catch (CarRentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 		}
 	}
 
