@@ -539,3 +539,139 @@
 2014-12-04 11:24:27,746 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - foreign keys: []
 2014-12-04 11:24:27,746 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - indexes: [primary]
 2014-12-04 11:24:27,746 - org.hibernate.tool.hbm2ddl.SchemaUpdate - INFO - schema update complete
+2014-12-08 17:31:34,514 - org.hibernate.cfg.annotations.Version - INFO - Hibernate Annotations 3.5.5-Final
+2014-12-08 17:31:34,530 - org.hibernate.cfg.Environment - INFO - Hibernate 3.5.5-Final
+2014-12-08 17:31:34,530 - org.hibernate.cfg.Environment - INFO - hibernate.properties not found
+2014-12-08 17:31:34,545 - org.hibernate.cfg.Environment - INFO - Bytecode provider name : javassist
+2014-12-08 17:31:34,545 - org.hibernate.cfg.Environment - INFO - using JDK 1.4 java.sql.Timestamp handling
+2014-12-08 17:31:34,639 - org.hibernate.annotations.common.Version - INFO - Hibernate Commons Annotations 3.2.0.Final
+2014-12-08 17:31:34,655 - org.hibernate.cfg.Configuration - INFO - configuring from resource: /hibernate.cfg.xml
+2014-12-08 17:31:34,655 - org.hibernate.cfg.Configuration - INFO - Configuration resource: /hibernate.cfg.xml
+2014-12-08 17:31:34,733 - org.hibernate.cfg.Configuration - INFO - Reading mappings from resource : storeinventory.hbm.xml
+2014-12-08 17:31:34,795 - org.hibernate.cfg.Configuration - INFO - Configured SessionFactory: null
+2014-12-08 17:31:34,811 - org.hibernate.cfg.search.HibernateSearchEventListenerRegister - INFO - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+2014-12-08 17:31:34,857 - org.hibernate.cfg.HbmBinder - INFO - Mapping class: il.ac.hit.project.model.Car -> CAR
+2014-12-08 17:31:34,873 - org.hibernate.cfg.HbmBinder - INFO - Mapping class: il.ac.hit.project.model.Branch -> BRANCH
+2014-12-08 17:31:34,873 - org.hibernate.cfg.HbmBinder - INFO - Mapping class: il.ac.hit.project.model.Admin -> Admin
+2014-12-08 17:31:34,873 - org.hibernate.cfg.AnnotationConfiguration - INFO - Hibernate Validator not found: ignoring
+2014-12-08 17:31:34,920 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - Using Hibernate built-in connection pool (not for production use!)
+2014-12-08 17:31:34,920 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - Hibernate connection pool size: 20
+2014-12-08 17:31:34,920 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - autocommit mode: false
+2014-12-08 17:31:34,920 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/carrental
+2014-12-08 17:31:34,920 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - connection properties: {user=bbb, password=****}
+2014-12-08 17:31:35,265 - org.hibernate.cfg.SettingsFactory - INFO - RDBMS: MySQL, version: 5.6.20
+2014-12-08 17:31:35,265 - org.hibernate.cfg.SettingsFactory - INFO - JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-5.1.13 ( Revision: ${bzr.revision-id} )
+2014-12-08 17:31:35,298 - org.hibernate.dialect.Dialect - INFO - Using dialect: org.hibernate.dialect.MySQLDialect
+2014-12-08 17:31:35,298 - org.hibernate.engine.jdbc.JdbcSupportLoader - INFO - Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-12-08 17:31:35,298 - org.hibernate.transaction.TransactionFactoryFactory - INFO - Using default transaction strategy (direct JDBC transactions)
+2014-12-08 17:31:35,298 - org.hibernate.transaction.TransactionManagerLookupFactory - INFO - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Automatic flush during beforeCompletion(): disabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Automatic session close at end of transaction: disabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - JDBC batch size: 15
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - JDBC batch updates for versioned data: disabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Scrollable result sets: enabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - JDBC3 getGeneratedKeys(): enabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Connection release mode: auto
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Maximum outer join fetch depth: 2
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Default batch fetch size: 1
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Generate SQL with comments: disabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Order SQL updates by primary key: disabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Order SQL inserts for batching: disabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+2014-12-08 17:31:35,298 - org.hibernate.hql.ast.ASTQueryTranslatorFactory - INFO - Using ASTQueryTranslatorFactory
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Query language substitutions: {}
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - JPA-QL strict compliance: disabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Second-level cache: enabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Query cache: disabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Optimize cache for minimal puts: disabled
+2014-12-08 17:31:35,298 - org.hibernate.cfg.SettingsFactory - INFO - Structured second-level cache entries: disabled
+2014-12-08 17:31:35,313 - org.hibernate.cfg.SettingsFactory - INFO - Echoing all SQL to stdout
+2014-12-08 17:31:35,313 - org.hibernate.cfg.SettingsFactory - INFO - Statistics: disabled
+2014-12-08 17:31:35,313 - org.hibernate.cfg.SettingsFactory - INFO - Deleted entity synthetic identifier rollback: disabled
+2014-12-08 17:31:35,313 - org.hibernate.cfg.SettingsFactory - INFO - Default entity-mode: pojo
+2014-12-08 17:31:35,313 - org.hibernate.cfg.SettingsFactory - INFO - Named query checking : enabled
+2014-12-08 17:31:35,313 - org.hibernate.cfg.SettingsFactory - INFO - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+2014-12-08 17:31:35,344 - org.hibernate.impl.SessionFactoryImpl - INFO - building session factory
+2014-12-08 17:31:35,485 - org.hibernate.impl.SessionFactoryObjectFactory - INFO - Not binding factory to JNDI, no JNDI name configured
+2014-12-08 17:31:35,485 - org.hibernate.tool.hbm2ddl.SchemaUpdate - INFO - Running hbm2ddl schema update
+2014-12-08 17:31:35,485 - org.hibernate.tool.hbm2ddl.SchemaUpdate - INFO - fetching database metadata
+2014-12-08 17:31:35,485 - org.hibernate.tool.hbm2ddl.SchemaUpdate - INFO - updating schema
+2014-12-08 17:31:35,516 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - table found: carrental.admin
+2014-12-08 17:31:35,516 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - columns: [password, user]
+2014-12-08 17:31:35,516 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - foreign keys: []
+2014-12-08 17:31:35,516 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - indexes: [primary]
+2014-12-08 17:31:35,532 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - table found: carrental.branch
+2014-12-08 17:31:35,532 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - columns: [name, x, y, id]
+2014-12-08 17:31:35,532 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - foreign keys: []
+2014-12-08 17:31:35,532 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - indexes: [primary]
+2014-12-08 17:31:35,547 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - table found: carrental.car
+2014-12-08 17:31:35,547 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - columns: [branchid, rentedsince, year, price, imageurl, model, carid]
+2014-12-08 17:31:35,547 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - foreign keys: []
+2014-12-08 17:31:35,547 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - indexes: [primary]
+2014-12-08 17:31:35,547 - org.hibernate.tool.hbm2ddl.SchemaUpdate - INFO - schema update complete
+2014-12-08 17:31:35,578 - org.hibernate.cfg.Configuration - INFO - configuring from resource: /hibernate.cfg.xml
+2014-12-08 17:31:35,578 - org.hibernate.cfg.Configuration - INFO - Configuration resource: /hibernate.cfg.xml
+2014-12-08 17:31:35,578 - org.hibernate.cfg.Configuration - INFO - Reading mappings from resource : storeinventory.hbm.xml
+2014-12-08 17:31:35,625 - org.hibernate.cfg.Configuration - INFO - Configured SessionFactory: null
+2014-12-08 17:31:35,625 - org.hibernate.cfg.search.HibernateSearchEventListenerRegister - INFO - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+2014-12-08 17:31:35,641 - org.hibernate.cfg.HbmBinder - INFO - Mapping class: il.ac.hit.project.model.Car -> CAR
+2014-12-08 17:31:35,641 - org.hibernate.cfg.HbmBinder - INFO - Mapping class: il.ac.hit.project.model.Branch -> BRANCH
+2014-12-08 17:31:35,641 - org.hibernate.cfg.HbmBinder - INFO - Mapping class: il.ac.hit.project.model.Admin -> Admin
+2014-12-08 17:31:35,641 - org.hibernate.cfg.AnnotationConfiguration - INFO - Hibernate Validator not found: ignoring
+2014-12-08 17:31:35,641 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - Using Hibernate built-in connection pool (not for production use!)
+2014-12-08 17:31:35,641 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - Hibernate connection pool size: 20
+2014-12-08 17:31:35,641 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - autocommit mode: false
+2014-12-08 17:31:35,641 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/carrental
+2014-12-08 17:31:35,641 - org.hibernate.connection.DriverManagerConnectionProvider - INFO - connection properties: {user=bbb, password=****}
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - RDBMS: MySQL, version: 5.6.20
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-5.1.13 ( Revision: ${bzr.revision-id} )
+2014-12-08 17:31:35,656 - org.hibernate.dialect.Dialect - INFO - Using dialect: org.hibernate.dialect.MySQLDialect
+2014-12-08 17:31:35,656 - org.hibernate.engine.jdbc.JdbcSupportLoader - INFO - Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+2014-12-08 17:31:35,656 - org.hibernate.transaction.TransactionFactoryFactory - INFO - Using default transaction strategy (direct JDBC transactions)
+2014-12-08 17:31:35,656 - org.hibernate.transaction.TransactionManagerLookupFactory - INFO - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Automatic flush during beforeCompletion(): disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Automatic session close at end of transaction: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - JDBC batch size: 15
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - JDBC batch updates for versioned data: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Scrollable result sets: enabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - JDBC3 getGeneratedKeys(): enabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Connection release mode: auto
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Maximum outer join fetch depth: 2
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Default batch fetch size: 1
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Generate SQL with comments: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Order SQL updates by primary key: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Order SQL inserts for batching: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+2014-12-08 17:31:35,656 - org.hibernate.hql.ast.ASTQueryTranslatorFactory - INFO - Using ASTQueryTranslatorFactory
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Query language substitutions: {}
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - JPA-QL strict compliance: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Second-level cache: enabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Query cache: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Optimize cache for minimal puts: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Structured second-level cache entries: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Echoing all SQL to stdout
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Statistics: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Deleted entity synthetic identifier rollback: disabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Default entity-mode: pojo
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Named query checking : enabled
+2014-12-08 17:31:35,656 - org.hibernate.cfg.SettingsFactory - INFO - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+2014-12-08 17:31:35,656 - org.hibernate.impl.SessionFactoryImpl - INFO - building session factory
+2014-12-08 17:31:35,672 - org.hibernate.impl.SessionFactoryObjectFactory - INFO - Not binding factory to JNDI, no JNDI name configured
+2014-12-08 17:31:35,672 - org.hibernate.tool.hbm2ddl.SchemaUpdate - INFO - Running hbm2ddl schema update
+2014-12-08 17:31:35,672 - org.hibernate.tool.hbm2ddl.SchemaUpdate - INFO - fetching database metadata
+2014-12-08 17:31:35,672 - org.hibernate.tool.hbm2ddl.SchemaUpdate - INFO - updating schema
+2014-12-08 17:31:35,672 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - table found: carrental.admin
+2014-12-08 17:31:35,672 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - columns: [password, user]
+2014-12-08 17:31:35,672 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - foreign keys: []
+2014-12-08 17:31:35,672 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - indexes: [primary]
+2014-12-08 17:31:35,688 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - table found: carrental.branch
+2014-12-08 17:31:35,688 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - columns: [name, x, y, id]
+2014-12-08 17:31:35,688 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - foreign keys: []
+2014-12-08 17:31:35,688 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - indexes: [primary]
+2014-12-08 17:31:35,703 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - table found: carrental.car
+2014-12-08 17:31:35,703 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - columns: [branchid, rentedsince, year, price, imageurl, model, carid]
+2014-12-08 17:31:35,703 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - foreign keys: []
+2014-12-08 17:31:35,703 - org.hibernate.tool.hbm2ddl.TableMetadata - INFO - indexes: [primary]
+2014-12-08 17:31:35,703 - org.hibernate.tool.hbm2ddl.SchemaUpdate - INFO - schema update complete
