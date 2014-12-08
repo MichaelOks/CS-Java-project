@@ -170,7 +170,7 @@ public class MyHQLBranchDAO implements IBranchDAO {
 		try {
 			session = factory.openSession();
 			tx = session.beginTransaction();
-			String query = "select b.id,b.name,b.X,b.Y from Branch as b, (SELECT MIN( SQRT( power("+x+"-X,2)+power("+y+"-Y,2)  ) ) ,id from Branch) as new where b.id = new.id";
+			String query = "SELECT id,name, (  acos( cos( radians("+x+") ) * cos( radians( x ) ) * cos( radians( y ) - radians("+y+") ) + sin( radians("+x+") ) * sin( radians( x ) ) ) ) AS distance FROM Branch HAVING distance < 25 ORDER BY distance LIMIT 0 ,1;";
 			@SuppressWarnings("unchecked")
 			List<Branch> branchs = session.createSQLQuery(query).list(); //
 			if (branchs.size() == 1) {

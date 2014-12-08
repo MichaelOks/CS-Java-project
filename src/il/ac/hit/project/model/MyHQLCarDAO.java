@@ -38,6 +38,9 @@ public class MyHQLCarDAO implements ICarDAO {
 		try {
 			session = factory.openSession();
 			tx = session.beginTransaction();
+			if(rentedSince == null){
+				rentedSince = "0000-00-00";
+			}
 			Car car = new Car(carId, model, year, price, branchId, carImageUrl,rentedSince);
 			// Save the coupon in database
 			session.save(car);
@@ -198,6 +201,9 @@ public class MyHQLCarDAO implements ICarDAO {
 		try {
 			session = factory.openSession();
 			transaction = session.beginTransaction();
+			if(car.getRentedSince()==null){
+				car.setRentedSince("0000-00-00");
+			}
 			session.update(car);
 			transaction.commit();
 		}

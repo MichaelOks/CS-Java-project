@@ -33,6 +33,20 @@
 	$(function() {
 		$('[data-toggle="popover"]').popover()
 	})
+	
+	
+	$('#first').collapsible('accordion-open', {
+  contentOpen: 1
+});
+$('#second').collapsible('accordion', {
+  animate: false
+});
+$('#third').collapsible('accordion');
+$('#fourth').collapsible('default-open');
+$('#fifth').collapsible({
+  animate: false
+});
+$('#sixth').collapsible();
 </script>
 
 <title>Admin Page</title>
@@ -156,6 +170,7 @@
 
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="jquery-1.9.1.js"></script>
 
 </body>
 </html>
