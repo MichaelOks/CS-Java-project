@@ -62,7 +62,10 @@
 <ul class="nav nav-tabs" id="tabs">
 	<li><a href="#tab1" data-toggle="tab">Add/Remove cars</a></li>
 	<li><a href="#tab2" data-toggle="tab">Add/Remove branches </a></li>
-	<li><a href="#tab3" data-toggle="tab">Change password</a></li>
+	<li><a href="#tab5" data-toggle="tab">Release car</a></li>
+	<li><a href="#tab3" data-toggle="tab">Show all cars</a></li>
+	<li><a href="#tab4" data-toggle="tab">Show all branches</a></li>
+
 </ul>
 
 <div class="tab-content">
@@ -73,17 +76,24 @@
 	<div id="tab2" class="tab-pane">
 		<jsp:include page="adminAddDeletebranches.jsp" />
 	</div>
-
+	
+	<div id="tab5" class="tab-pane">
+		<jsp:include page="releaseCar.jsp" />
+	</div>
+	
 	<div id="tab3" class="tab-pane">
-	<p>To be continue</p>
+		<jsp:include page="showAllCars.jsp" />
+	</div>
+	
+	<div id="tab4" class="tab-pane">
+		<jsp:include page="showAllBranches.jsp" />
 	</div>
 </div>
 
  
 
 
-	</section>
-	</div>
+
 
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
