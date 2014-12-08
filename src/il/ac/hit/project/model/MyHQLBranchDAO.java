@@ -135,7 +135,7 @@ public class MyHQLBranchDAO implements IBranchDAO {
 	 * @param branchId- delete the branch with this ID
 	 * */
 	@Override
-	public void deleteBranch(int branchId) throws CarRentException {
+	public boolean deleteBranch(int branchId) throws CarRentException {
 		System.out.println("Trying to delete branch with id: " + branchId);
 		Session session = null;
 		Transaction tx = null;
@@ -148,19 +148,20 @@ public class MyHQLBranchDAO implements IBranchDAO {
 			Branch branch = (Branch) session.get(Branch.class, branchId);
 			session.delete(branch);
 			tx.commit();
+			
 		} catch (HibernateException exceptionEvent) {
 			if (tx != null)
 				tx.rollback();
 			exceptionEvent.printStackTrace();
 			throw new CarRentException("Problem with deleting branch");
-
+			
 		} finally {
 			if (session != null) {
 				session.close();
-
+				return true;
 			}
 		}
-
+		return false;
 	}
 
 	@Override
@@ -227,6 +228,45 @@ public class MyHQLBranchDAO implements IBranchDAO {
 			return true;
 		}
 
+	}
+
+	@SuppressWarnings("finally")
+	@Override
+	/**
+	 * Decides if you need to Add or Update the branch into the DB
+	 * @param branch: branch object to add or update
+	 * @return: true if the branch exist in the DB
+	 * */
+	public boolean doesBranchNeedsToBeUpdateOrAdded(Branch branch) throws CarRentException {
+		Session session = null;
+		Transaction transaction = null;
+		try {
+			session = factory.openSession();
+			transaction = session.beginTransaction();
+			String query = "from Branch where id=" + branch.getId();
+
+			@SuppressWarnings("unchecked")
+			Collection<Branch> branches = session.createQuery(query).list();
+			if (branches.size() > 0) {
+				updateBranch(branch);
+			} else {
+				addBranch(branch.getId(), branch.getName(), branch.getX(), branch.getY());
+			}
+		}
+
+		catch (HibernateException exceptionEvent) {
+			if (transaction != null)
+				transaction.rollback();
+			exceptionEvent.printStackTrace();
+			throw new CarRentException(("Failed update branch"));
+		}
+
+		finally {
+			if (session != null) {
+				session.close();
+			}
+			return true;
+		}
 	}
 
 }

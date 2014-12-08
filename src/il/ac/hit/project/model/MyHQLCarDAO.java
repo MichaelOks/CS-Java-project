@@ -163,7 +163,7 @@ public class MyHQLCarDAO implements ICarDAO {
 	 *            - delete the car with the branch ID
 	 * */
 	@Override
-	public void deleteCarFromBranchId(int branchId) throws CarRentException {
+	public boolean deleteCarFromBranchId(int branchId) throws CarRentException {
 		System.out.println("Trying to delete car from branch id: " + branchId);
 		Session session = null;
 		Transaction tx = null;
@@ -185,9 +185,10 @@ public class MyHQLCarDAO implements ICarDAO {
 		} finally {
 			if (session != null) {
 				session.close();
-
+				return true;
 			}
 		}
+		return false;	
 	}
 
 	@SuppressWarnings("finally")

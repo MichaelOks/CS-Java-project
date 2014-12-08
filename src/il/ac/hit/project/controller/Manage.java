@@ -1,6 +1,7 @@
 package il.ac.hit.project.controller;
 
 import il.ac.hit.project.model.Admin;
+import il.ac.hit.project.model.Branch;
 import il.ac.hit.project.model.Car;
 import il.ac.hit.project.model.CarRentException;
 import il.ac.hit.project.model.IAdminDAO;
@@ -15,6 +16,7 @@ import java.io.PrintWriter;
 import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 
+import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -165,6 +167,82 @@ public class Manage extends HttpServlet {
 					dispatcher.forward(request, response);
 				}
 			}
+			else if (name.equals("updatebranchid")) {
+				try {
+					String paramBranchId = request.getParameter("updatebranchid");
+					String paramPositionX = request.getParameter("updatebranchpositionx");
+					String paramPositionY = request.getParameter("updatebranchpositiony");
+					String branchName = request.getParameter("updatebranchname");
+					
+ 
+					Branch branch = new Branch(Integer.parseInt(paramBranchId),branchName,Integer.parseInt(paramPositionX),Integer.parseInt(paramPositionY));
+					request.setAttribute("branchid", MyHQLBranchDAO.getInstance().doesBranchNeedsToBeUpdateOrAdded(branch));
+					
+					dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp");
+					dispatcher.forward(request, response);
+				} catch (IOException e) {
+					dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+					dispatcher.forward(request, response);
+
+				} catch (CarRentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				 
+			} 
+			
+			else if (name.equals("deletebranchid")) {
+				try {
+					String paramBranchId = request.getParameter("deletebranchid");
+					request.setAttribute("branchid", MyHQLBranchDAO.getInstance().deleteBranch(Integer.parseInt(paramBranchId)));
+					request.setAttribute("carModel", MyHQLCarDAO.getInstance().deleteCarFromBranchId(Integer.parseInt(paramBranchId)));
+					dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp");
+					dispatcher.forward(request, response);
+				} catch (IOException e) {
+					dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+					dispatcher.forward(request, response);
+
+				} catch (CarRentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			else if (name.equals("releaseCarid")) {
+				try {
+					String paramCarId = request.getParameter("releaseCarid");
+					String paramBranchId=request.getParameter("moveToBranchId");
+					
+					//to ask if its ok to do like this way:
+					Car car =MyHQLCarDAO.getInstance().getCar(Integer.parseInt(paramCarId));
+					car.setRentedSince("0000-00-00");
+					
+					if(paramBranchId!="")
+					{
+						car.setBranchId(Integer.parseInt(paramBranchId));
+					}
+
+					System.out.println("###############################################");
+					System.out.println("id:"+car.getCarId());
+					System.out.println("price"+car.getPrice());
+					System.out.println("branch id:"+car.getBranchId());
+					System.out.println("rented since"+car.getRentedSince());
+					System.out.println("year"+car.getYear());
+					System.out.println("###############################################");	
+					request.setAttribute("carModel", MyHQLCarDAO.getInstance().updateCar(car));
+					//request.setAttribute("carModel", MyHQLCarDAO.getInstance().doesCarNeedsToBeUpdateOrAdded(car));
+					dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Admin.jsp");
+					dispatcher.forward(request, response);
+ 
+				} catch (IOException e) {
+					dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+					dispatcher.forward(request, response);
+
+				} catch (CarRentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}			
+
 		}
 	}
 

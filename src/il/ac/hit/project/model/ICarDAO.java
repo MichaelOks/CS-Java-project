@@ -22,7 +22,7 @@ public interface ICarDAO {
 	 * Delete car that is in the list
 	 * @param id - delete the car with the branch ID
 	 * */
-	public abstract void deleteCarFromBranchId(int branchId) throws CarRentException;
+	public abstract boolean deleteCarFromBranchId(int branchId) throws CarRentException;
 	/** Method to update a car record in the database 
 	 * @param car- get a Car type
 	 * */
